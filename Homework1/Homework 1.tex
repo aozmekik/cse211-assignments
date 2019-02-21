@@ -1,0 +1,195 @@
+\documentclass[12pt,fleqn]{article}
+
+\usepackage{graphicx}
+
+%\setlength{\parindent}{2em}
+\setlength{\parskip}{0ex}
+\setlength{\oddsidemargin}{0in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-.5in}
+\setlength{\textheight}{9in}
+
+\newcommand{\comment}[1]{}
+\renewcommand{\thepage}{}
+
+\begin{document}
+
+%\renewcommand{\baselinestretch}{.95}
+
+\setcounter{page}{1}
+\thispagestyle{empty}
+
+\begin{center}
+\LARGE
+CSE 211: Discrete Mathematics \\
+Homework 1 \\
+\normalsize 
+\ \\
+Fall 2018 \hfill Ahmed Semih Ozmekik \\
+Zafeirakis  Zafeirakopoulos, Instructor \hfill 171044039
+
+\end{center}
+
+\normalsize
+
+\begin{enumerate}
+
+\item (10 points) Let  $p$ and $q$ be the propositions. \\
+$p$ : She speaks English. \space $q$: She speaks Turkish. \\
+Give a simple verbal sentence which describes each of the following:
+\begin{enumerate}
+\item \space $(p \wedge q)$. : \textit{She speaks English and Turkish.}
+\item \space $(p \vee q)$. : \textit{She speaks English or Turkish.}
+\item \space $(p \wedge \neg q)$. : \textit{She speaks English and doesn't speak Turkish.}
+\item \space $(p \leftrightarrow q)$. : \textit{She speaks English if and only if she speaks Turkish.}
+\item \space $(p \vee q)\wedge (p \rightarrow \neg q)$. : \textit{She speaks English or Turkish, and if she speaks English then she doesn't speak Turkish}
+\end{enumerate} 
+
+\item (10 points) Show whether the following propositions are logically equivalent to $p \rightarrow q$. 
+\begin{enumerate}
+\item \space $q \rightarrow p$. \\\\ \textit{One counter example will be enough to show that $p \rightarrow q$ and $q \rightarrow p$ are not logically equivalent to each other: }
+\\\\\begin{tabular}{ c | c | c | c }
+  $p$ & $q$ & $p \rightarrow q$ & $q \rightarrow p$ \\ \hline
+  $F$ & $T$ & $T$ & $F$ 
+\end{tabular}\\
+
+
+\item \space $\neg p \rightarrow \neg q$.\\\\
+\textit{Again, a counter example:}\\\\
+\begin{tabular}{ c | c | c | c }
+  $p$ & $q$ & $p \rightarrow q$ & $\neg p \rightarrow \neg q$ \\ \hline
+  $T$ & $F$ & $F$ & $T$ 
+\end{tabular}\\
+
+
+\item \space $\neg q \rightarrow \neg p$.\ (1) \\\\
+\textit{Truth Table:}\\\\
+\begin{tabular}{ c | c | c | c }
+  $p$ & $q$ & $p \rightarrow q$ & $\neg q \rightarrow \neg p$ \\ \hline
+  $T$ & $T$ & $T$ & $T$\\ \hline
+  $F$ & $F$ & $T$ & $T$\\ \hline
+  $T$ & $F$ & $F$ & $F$\\ \hline
+  $F$ & $T$ & $T$ & $T$\\    
+\end{tabular}\\\\\\\ \textit{Hence,}\ $p \rightarrow q$ $\equiv$ \  
+$\neg q \rightarrow p.$
+
+\item \space $\neg p \vee q$.\\\\
+\textit{Truth Table:}\\\\
+\begin{tabular}{ c | c | c | c }
+  $p$ & $q$ & $p \rightarrow q$ & $\neg p \vee q$ \\ \hline
+  $T$ & $T$ & $T$ & $T$\\ \hline
+  $F$ & $F$ & $T$ & $T$\\ \hline
+  $T$ & $F$ & $F$ & $F$\\ \hline
+  $F$ & $T$ & $T$ & $T$\\    
+\end{tabular}\\\\\\\ \textit{Hence, }\ $p \rightarrow q$ $\equiv$ \  $\neg p \vee q.$ \ \ \ \  \textbf{(1)}
+\item \space $\neg (p \wedge \neg q)$.\\\\ 
+$\neg (p \wedge \neg q)$ $\equiv$  $\neg p \vee q.$ \ \ \ \ \textit{(De Morgan's Law)}\\
+\ \  $p \rightarrow q$ $\equiv$ \  $\neg p \vee q.$ \ \ \ \  \textbf{(1)}\\\\
+\textit{Hence,} $\neg (p \wedge \neg q)$ $\equiv$ $p \rightarrow q$\\
+
+\end{enumerate}
+
+\item (10 points) Construct truth tables for the following and determine whether each of the following is a tautology or neither.
+\begin{enumerate}
+\item \space $[p \rightarrow (q \wedge r)]\leftrightarrow[(p \rightarrow q) \wedge (p \rightarrow r)]$.\\\\
+
+
+\textit{Truth Table:}\\\\
+\begin{tabular}{ c | c | c | c | c | c}
+  $p$ & $q$ & $r$ & $[p \rightarrow (q \wedge r)]$ & $[(p \rightarrow q) \wedge (p \rightarrow r)]$ & $[p \rightarrow (q \wedge r)]\leftrightarrow[(p \rightarrow q) \wedge (p \rightarrow r)]$\\ \hline
+  $T$ & $T$ & $T$ & $T$ & $T$ &$T$ \\ \hline
+  $T$ & $T$ & $F$ & $F$ & $F$ &$T$\\ \hline
+  $T$ & $F$ & $T$ & $F$ & $F$ &$T$\\ \hline
+  $T$ & $F$ & $F$ & $F$ & $F$ &$T$\\ \hline
+  $F$ & $F$ & $T$ & $T$ & $T$ &$T$\\ \hline
+  $F$ & $T$ & $F$ & $T$ & $T$ &$T$\\ \hline
+  $F$ & $F$ & $F$ & $T$ & $T$ &$T$\\ \hline
+  $F$ & $T$ & $T$ & $T$ & $T$ &$T$ \\     
+\end{tabular}\\\\\ \\
+\textit{Tautology.}\\
+\item \space $(a \vee (b \bigoplus c)) \vee (c \rightarrow b)$.\\\\
+\textit{Truth Table:}\\\\
+\begin{tabular}{ c | c | c | c | c | c}
+  $a$ & $b$ & $c$ & $(a \vee (b \bigoplus c))$ & $(c \rightarrow b)$ & $(a \vee (b \bigoplus c)) \vee (c \rightarrow b)$\\ \hline
+  $T$ & $T$ & $T$ & $T$ & $T$ &$T$ \\ \hline
+  $T$ & $T$ & $F$ & $T$ & $T$ &$T$\\ \hline
+  $T$ & $F$ & $T$ & $T$ & $F$ &$T$\\ \hline
+  $T$ & $F$ & $F$ & $T$ & $T$ &$T$\\ \hline
+  $F$ & $F$ & $T$ & $T$ & $F$ &$T$\\ \hline
+  $F$ & $T$ & $F$ & $T$ & $T$ &$T$\\ \hline
+  $F$ & $F$ & $F$ & $F$ & $T$ &$T$\\ \hline
+  $F$ & $T$ & $T$ & $F$ & $T$ &$T$ \\     
+\end{tabular}\\\\\ \\
+\textit{Tautology.}\\
+\end{enumerate}
+
+\item (10 points) Write these propositions using $p$, $q$ and $r$ and logical connectives. Test the validity of the following argument using truth table. \\
+$p$: Tom is a singer. \space $q$: Tom is a footballer. \space $r$: Tom has good voice. \\
+Tom is either a singer or a footballer. If he is a singer then he has good voice. Tom does not have good voice so he is a footballer. \\\\
+\textit{Proposition: } $(p \bigoplus q)$ $\wedge$ $(p \rightarrow r)$ $\wedge$ $(\neg r \rightarrow q)$\\\\
+\textit{Truth Table:}\\\\
+\begin{tabular}{ c | c | c | c | c | c | c}
+  $p$ & $q$ & $r$ & $(p \bigoplus q)$ & $(p \rightarrow r)$ & $(\neg r \rightarrow q)$ & $(p \bigoplus q)$ $\wedge$ $(p \rightarrow r)$ $\wedge$ $(\neg r \rightarrow q)$ \\ \hline
+  $T$ & $T$ & $T$ & $F$ & $T$ &$T$ &$F$ \\ \hline
+  $T$ & $T$ & $F$ & $F$ & $F$ &$T$ &$F$\\ \hline
+  $T$ & $F$ & $T$ & $T$ & $T$ &$T$ &$T$\\ \hline
+  $T$ & $F$ & $F$ & $T$ & $F$ &$F$ &$F$\\ \hline
+  $F$ & $F$ & $T$ & $F$ & $T$ &$F$ &$F$\\ \hline
+  $F$ & $T$ & $F$ & $T$ & $T$ &$T$ &$T$\\ \hline
+  $F$ & $F$ & $F$ & $F$ & $T$ &$F$ &$F$\\ \hline
+  $F$ & $T$ & $T$ & $T$ & $T$ &$T$ &$T$\\     
+\end{tabular}\\\\\ \\
+
+\item (10 points) Show, without using truth table, if $(d \vee (a \wedge c \wedge d)) \wedge ((a \wedge b \wedge \neg c) \vee a \vee (a \wedge b))$ is logically equivalent to $(a \wedge d)$. Explain why (simplify and use the laws of logic).
+
+$(d \vee (a \wedge c \wedge d)) \equiv $d  Absorption law \\
+$(a \wedge b \wedge \neg c) \vee a \equiv $a Absorption Law \\
+$(a \vee (a \wedge b)) \equiv (d \wedge a)$ Absorption law
+
+\item (6 points) $A = \{1, 2, 3, 4 \}, B = \{3, 4, 5\}, X = \{a, b\}, Y = \{b, c, d\}$. List the elements of each of the following sets. 
+\begin{enumerate}
+\item \space $(A \times X) \cap (B \times Y )$ = $\{(3,b),(4,b)\}$
+\item \space $(A \cap  X) \times Y$. = $\{b,c,d\}$
+\item \space $(A \times X) \cup (B \times Y )$ = $\{(1,a),(1,b),(2,a),(2,b),(3,a),(3,b),(4,a),(4,b),(3,c),(3,d),(4,c)$\\$,(4,d),(5,b),(5,c),(5,d)\}$
+\end{enumerate}
+
+\item (4 points) Find the power set $P(E)$ of $E = [\{a,b,c\},\{b,c\},\{1,2\}]$.\\ \\ $E$ = $\{a,b,c\} \cup \{b,c\} \cup \{1,2\}$ \\
+$E$ = $\{a,b,c,1,2\}$
+
+$P(E)$ = $[\{a\},\{b\},\{c\},\{1\},\{2\},\{a,b\},\{a,c\},\{c,b\},\{a,1\},\{a,2\},\{b,1\},\{b,2\},$\\
+$\{c,1\},\{c,2\},\{1,2\},\{a,b,c,1\},\{a,b,c,2\},\{2,b,c,1\},\{a,2,c,1\},\{a,b,2,1\}$\\$\{a,b,c,1,2\},\{ \}]$
+
+	     
+
+
+
+\item (15 points) Prove by mathematical induction that for all positive integers $n \ge 1$, $ 4^{2n+1} + 3^{n+2}$ is divisible by $13$.\\\\
+$a_{1}$ $\equiv$ \ $0 $ \textit{mod($13$)}\\\\
+$a_{n}$ = $ 4^{2n+1} + 3^{n+2} \rightarrow a_{n+1}$ = $ 4^{2n+3} + 3^{n+3}$
+
+\textit{We assume the proposition is true, hence:}
+
+$m,n$ $\in$ \textbf{N}
+
+$a_{n}$ = $13.m$ $\Rightarrow$  $13.m$ = $4.4^{n}+9.3^{n}$ $\Rightarrow$ $3.13.m$ = $12.4^{n}+27.3^{n}$
+
+$a_{n+1}$ = $13.n$ = $64.4^{n}+27.3^{n}$
+
+$a_{n+1}-a_{n}$ $\Rightarrow$
+$13(n-m) = 52.2^{n}$ $\Rightarrow$ $13(n-m) - 51.2^{n}$ $\equiv$ $ 0 $ \textit{mod($13$)}
+
+
+
+\item (15 points) Use mathematical induction to prove that for $ n \ge 1$ $$\sum_{1 \le x \le n}\frac{1}{x (x + 1)}=1- \frac {1}{(n + 1)}$$
+$\frac{1}{x (x + 1)}$= $\frac{1}{x}- \frac{1}{x+1}$\\
+
+$$\sum_{1 \le x \le n}\frac{1}{x}- \frac{1}{x+1}=1-\frac{1}{2}+\frac{1}{2}-\frac{1}{3}+\frac{1}{3}-\frac{1}{4}+...-\\
+\frac{1}{n+1}$$
+$$\sum_{1 \le x \le n}\frac{1}{x}- \frac{1}{x+1}=1-\frac{1}{n+1}$$
+$$\sum_{1 \le x \le n}\frac{1}{x (x + 1)}=1- \frac {1}{(n + 1)}$$
+
+
+
+\end{enumerate}
+
+\end{document}
